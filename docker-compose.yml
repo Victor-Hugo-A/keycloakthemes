@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.3
+    depends_on:
+      - postgres
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: localhost
+      KC_HTTP_RELATIVE_PATH: /
+      KC_FEATURES: preview
+      KC_DEV: "true"  # Modo desenvolvimento para temas
+      KC_LOG_LEVEL: "DEBUG"
+    volumes:
+    - type: bind
+    source: C:/docker-themes/mytheme
+    target: /opt/keycloak/themes/mytheme
+      - ./mytheme:/opt/keycloak/themes/mytheme
+    ports:
+      - "8080:8080"
+    command: ["start-dev"]
+
+volumes:
+  postgres_data:
