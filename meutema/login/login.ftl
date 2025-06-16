@@ -38,20 +38,24 @@
                     </div>
                 </div>
 
-                <div class="input-icon-wraper">
+                <div class="input-icon-wrapper">
                     <div class="form-group">
                         <i class="fas fa-lock"></i>
                         <label for="password">Senha:</label>
                         <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-                    <button type="submit">Login</button>
-                    <div class="forgot-password">
-                        <a href="${url.loginResetCredentialsUrl}">Esqueceu a senha?</a>
                     </div>
                 </div>
-            </div>
 
+                    <button type="submit">Login</button>
+                    <div class="forgot-password">
+                    <div id="reset-message">
+                        Para redefinir a sua senha entre em contato com o administrador da <strong>CGETI</strong>.
+                    </div>
+                        <a href="#" onclick="return showResetPassword()">Esqueceu a senha?</a>
+                    </div>
+                    
                 <#if realm.rememberMe && !username??>
-                    <div class="form-group" style="margin-bottom: 1rem;">
+                    <div class="form-checkbox">
                         <label>
                             <input type="checkbox" id="rememberMe" name="rememberMe"> Manter conectado
                         </label>
@@ -60,6 +64,7 @@
             </form>
         </div>
     </div>
+    
 
     <footer class="footer">
         <div>
@@ -68,5 +73,14 @@
             Todos os direitos reservados.
         </div>
     </footer>
+
+    <script type="text/javascript">
+
+        function showResetPassword() {
+            document.getElementById('reset-message').style.display = 'block';
+            return false;
+        }
+    </script>
+    <script type="text/javascript" src="${url.resourcesPath}/js/custom.js"></script>
 </body>
 </html>

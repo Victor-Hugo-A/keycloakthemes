@@ -90,7 +90,7 @@
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.1rem;
         }
         
         label {
@@ -105,7 +105,7 @@
             padding: 0.75rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: border 0.3s;
             box-sizing: border-box;
         }
@@ -184,8 +184,38 @@
             color: var(--secondary-color);
         }
         
+
+        #reset-message {
+            display:none; 
+            background:#f8d7da;
+            padding:7px; 
+            margin-top:10px; 
+            border-radius:4px; 
+            text-align:center;
+        }
+
+        .form-checkbox {
+        display: flex;
+        align-items: center; /* Alinha verticalmente */
+        gap: 8px; /* Espaço entre checkbox e texto */
+        }
+
+        .form-checkbox input[type="checkbox"] {
+        margin: 0; /* Remove margens padrão */
+        width: 16px;
+        height: 16px;
+        }
+
+        .form-checkbox label {
+        cursor: pointer;
+        user-select: none; /* Impede seleção de texto */
+        }
+
+
         @media (max-width: 480px) {
             .login-card {
                 padding: 1.5rem;
             }
         }
+
+        
