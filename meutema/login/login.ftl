@@ -24,6 +24,10 @@
                         <span class="alert-icon">✗</span>
                     <#elseif message.type == 'info'>
                         <span class="alert-icon">i</span>
+                    <#elseif message.summary == "invalidUserMessage">
+                        ${msg("invalidUser")}
+                    <#elseif message.summary == "invalidUserPasswordMessage">
+                        ${msg("invalidPassword")}
                     </#if>
                     ${kcSanitize(message.summary)?no_esc}
                 </div>
