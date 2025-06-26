@@ -12,7 +12,7 @@
         <div class="login-card">
             <div class="header">
                 <img src="${url.resourcesPath}/img/senappenLogo.png" alt="Logo SENAPPEN" class="logo">
-                <h1>Redefinir Senha</h1>
+                <h1>Esqueceu a Senha?</h1>
             </div>
 
         <#if message?has_content>
